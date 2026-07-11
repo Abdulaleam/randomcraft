@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "randomcraft",
+	"version": "${version}",
+	"name": "Randomcraft",
+	"description": "This is a Mod made by Rainy!!! , 1 day , 1 minigame!",
+	"authors": [
+		"Rainy!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "Mit-License",
+	"icon": "assets/randomcraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"rainy.randomcraft.Randomcraft"
+		],
+		"fabric-datagen": [
+			"rainy.randomcraft.RandomcraftDataGenerator"
+		],
+		"client": ["rainy.randomcraft.RandomCraftClient"]
+	},
+	"mixins": [
+		"randomcraft.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
