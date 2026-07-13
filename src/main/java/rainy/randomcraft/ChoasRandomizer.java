@@ -9,6 +9,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import rainy.randomcraft.mixin.ShapedRecipeAccessor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,7 +39,7 @@ public class ChoasRandomizer {
                     ShapedRecipe randomizedShpaed = new ShapedRecipe(
                             shaped.getGroup(),
                             shaped.getCategory(),
-                            shaped.raw(),
+                            ((ShapedRecipeAccessor) shaped) .getRaw(),
                             newResult,
                             shaped.showNotification());
                     newRecipes.add(new RecipeEntry<>(entry.id(), randomizedShpaed));
