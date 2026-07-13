@@ -15,10 +15,21 @@ public class ehStartCommand {
                         .executes(context -> {
                             ChoasRandomizer.enabled = true;
 
-
                             context.getSource().getServer().getPlayerManager().broadcast( Text.literal("Chaos Crafting Starts! HEHEHE!")
                                             .formatted(Formatting.RED), false);
                             return Command.SINGLE_SUCCESS;
                         }));
+
+        dispatcher.register(
+                CommandManager.literal("stop")
+                        .executes(context -> {
+                            ChoasRandomizer.enabled = false;
+                            context.getSource().getServer().getPlayerManager().broadcast( Text.literal("Awhhh We Gotta stop :( ")
+                                    .formatted(Formatting.AQUA), false);
+                            return Command.SINGLE_SUCCESS;
+
+
+                        }));
+
     }
 }
