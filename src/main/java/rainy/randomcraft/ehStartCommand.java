@@ -14,7 +14,7 @@ public class ehStartCommand {
                 CommandManager.literal("start")
                         .executes(context -> {
 
-                            ChoasRandomizer.randomize();
+
                             context.getSource().getServer().getPlayerManager().broadcast( Text.literal("Chaos Crafting Starts! HEHEHE!")
                                             .formatted(Formatting.RED), false);
                             return Command.SINGLE_SUCCESS;
