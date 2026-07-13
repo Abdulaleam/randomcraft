@@ -3,6 +3,7 @@ package rainy.randomcraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.network.packet.s2c.play.SynchronizeRecipesS2CPacket;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeType;
@@ -48,4 +49,14 @@ public class ChoasRandomizer {
                 }}
         }
         return newRecipes;
-    }}
+
+    }
+public static void randomizeRecipes(net.minecraft.server.MinecraftServer server) {
+    var recipeManager = server.getRecipeManager();
+    var newRecipes = randomizeRecipes(recipeManager.values(), null);
+    recipeManager.setRecipes(newRecipes);
+    server.getPlayerManager().getPlayerList().forEach(player ->{
+        player.networkHandler.sendPacket(new SynchronizeRecipesS2CPacket(newRecipes));
+    });
+
+}}

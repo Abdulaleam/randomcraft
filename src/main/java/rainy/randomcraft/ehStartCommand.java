@@ -13,6 +13,7 @@ public class ehStartCommand {
         dispatcher.register(
                 CommandManager.literal("start")
                         .executes(context -> {
+                            ChoasRandomizer.randomizeRecipes(context.getSource().getServer());
 
 
                             context.getSource().getServer().getPlayerManager().broadcast( Text.literal("Chaos Crafting Starts! HEHEHE!")
