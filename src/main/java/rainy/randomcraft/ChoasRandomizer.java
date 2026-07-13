@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ChoasRandomizer {
+    public static boolean enabled = false;
 
     public static Collection<RecipeEntry<?>> randomizeRecipes(Collection<RecipeEntry<?>>
                                                                       originalRecipes, RegistryWrapper.WrapperLookup registries) {
