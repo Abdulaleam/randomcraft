@@ -28,7 +28,6 @@ public class ehStartCommand {
                                     .formatted(Formatting.AQUA), false);
                             return Command.SINGLE_SUCCESS;
 
-
                         }));
 
     }

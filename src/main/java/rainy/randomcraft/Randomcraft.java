@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rainy.randomcraft.item.RainyItems;
 
 public class Randomcraft implements ModInitializer {
 	public static final String MOD_ID = "randomcraft";
@@ -15,6 +16,7 @@ public class Randomcraft implements ModInitializer {
 	private int tickCounter = 0;
 	@Override
 	public void onInitialize() {
+		RainyItems.registerModItems();
 		RainyCommands.register();
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			if (ChoasRandomizer.enabled) {
