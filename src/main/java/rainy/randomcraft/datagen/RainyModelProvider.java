@@ -20,8 +20,8 @@ public class RainyModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(RainyItems.START_ITEM, Models.GENERATED);
-        itemModelGenerator.register(RainyItems.STOP_ITEM, Models.GENERATED);
+        itemModelGenerator.register(RainyItems.START_ITEM, Models.HANDHELD);
+        itemModelGenerator.register(RainyItems.STOP_ITEM, Models.HANDHELD);
 
     }
 }
