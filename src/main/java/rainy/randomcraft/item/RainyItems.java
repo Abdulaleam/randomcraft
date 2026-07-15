@@ -12,6 +12,7 @@ import rainy.randomcraft.Randomcraft;
 public class RainyItems {
 
     public static final Item START_ITEM = registerItem("start_item", new Item(new Item.Settings()));
+    public static final Item STOP_ITEM = registerItem("stop_item", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, Identifier.of(Randomcraft.MOD_ID, name), item);
@@ -23,6 +24,7 @@ public class RainyItems {
         Randomcraft.LOGGER.info("so im registering mod items for " + Randomcraft.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.add(START_ITEM);
+            entries.add(STOP_ITEM);
         });
     }
 

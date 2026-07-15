@@ -24,6 +24,7 @@ public class ehStartCommand {
                 CommandManager.literal("stop")
                         .executes(context -> {
                             ChoasRandomizer.enabled = false;
+                            ChoasRandomizer.restoreRecipes(context.getSource().getServer());
                             context.getSource().getServer().getPlayerManager().broadcast( Text.literal("Awhhh We Gotta stop :( ")
                                     .formatted(Formatting.AQUA), false);
                             return Command.SINGLE_SUCCESS;

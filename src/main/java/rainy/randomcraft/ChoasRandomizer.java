@@ -19,6 +19,7 @@ import java.util.Random;
 
 public class ChoasRandomizer {
     public static boolean enabled = false;
+    private static Collection<RecipeEntry<?>> originalRecipes;
 
     public static Collection<RecipeEntry<?>> randomizeRecipes(Collection<RecipeEntry<?>>
                                                                       originalRecipes, RegistryWrapper.WrapperLookup registries) {
@@ -54,10 +55,25 @@ public class ChoasRandomizer {
     }
 public static void randomizeRecipes(net.minecraft.server.MinecraftServer server) {
     var recipeManager = server.getRecipeManager();
-    var newRecipes = randomizeRecipes(recipeManager.values(), null);
+    if (originalRecipes == null) {
+        originalRecipes = new ArrayList<>(recipeManager.values());
+    }    var newRecipes = randomizeRecipes(originalRecipes, null);
     recipeManager.setRecipes(newRecipes);
     server.getPlayerManager().getPlayerList().forEach(player ->{
         player.networkHandler.sendPacket(new SynchronizeRecipesS2CPacket(newRecipes));
-    });
 
-}}
+    });
+}
+    public static void restoreRecipes(net.minecraft.server.MinecraftServer server) {
+        if (originalRecipes == null) {
+            return;
+        }
+        var recipeManager = server.getRecipeManager();
+        recipeManager.setRecipes(originalRecipes);
+        server.getPlayerManager().getPlayerList().forEach(player->{
+            player.networkHandler.sendPacket(
+                    new SynchronizeRecipesS2CPacket(originalRecipes)
+            );
+        });
+    }
+}
