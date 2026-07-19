@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ExampleMixin",
-    "ShapedRecipeAccessor"
+    "ShapedRecipeAccessor",
+    "BlockDropMixin"
   ],
   "injectors": {
     "defaultRequire": 1
