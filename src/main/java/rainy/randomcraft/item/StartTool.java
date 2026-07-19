@@ -9,6 +9,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import rainy.randomcraft.ChoasRandomizer;
+import rainy.randomcraft.Randomcraft;
 
 public class StartTool extends Item {
     public StartTool(Settings settings) {
@@ -17,6 +18,7 @@ public class StartTool extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand){
         if ((!world.isClient())){
+            Randomcraft.ENABLED = true;
             ChoasRandomizer.enabled = true;
             ChoasRandomizer.randomizeRecipes(((ServerWorld) world).getServer());
             player.sendMessage(net.minecraft.text.Text.literal("Let the Choas Begin!")

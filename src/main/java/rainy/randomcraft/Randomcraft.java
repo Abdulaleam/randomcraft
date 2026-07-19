@@ -18,6 +18,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.random.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rainy.randomcraft.item.RainyItemGroups;
 import rainy.randomcraft.item.RainyItems;
 
 import java.util.ArrayList;
@@ -58,8 +59,8 @@ public class Randomcraft implements ModInitializer {
 				return;
 			}
 			Block block = state.getBlock();
-			long seed = SEED_COUNTERS.merge(block, 1L, Long::sum);
-			Box searchBox = new Box(pos).expand(1.0);
+			long seed = SEED_COUNTERS.merge(block, 7L, Long::sum);
+			Box searchBox = new Box(pos).expand(7.0);
 			List<ItemEntity> drops = world.getEntitiesByClass(
 					ItemEntity.class, searchBox, e -> !e.getStack().isEmpty());
 			if (drops.isEmpty()) {
@@ -73,7 +74,7 @@ public class Randomcraft implements ModInitializer {
 				dropped.setStack(new ItemStack(randomItem, dropped.getStack().getCount()));
 			}
 		}));
-
+		RainyItemGroups.registerItemGroups();
 		RainyItems.registerModItems();
 		RainyCommands.register();
 

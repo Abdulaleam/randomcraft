@@ -1,7 +1,5 @@
 {
-  "item.randomcraft.start_item": "Let The CHOAS BEGIN!!",
-  "item.randomcraft.stop_item": "Shall We Stop now >3 "
-
-
-
+  "item.randomcraft.start_item": "§4§l⚡ §e§l§nLE§c§l§nT §6§l§nTHE §4§l§kX§c§l§nCHOAS§4§l§kX §4§l⚡ §4§n§lBE§c§n§lGI§6§n§lN§4§l!!",
+  "item.randomcraft.stop_item": "§3§oShall We §b§l§oStop §3§onow... §d§l§k|§5§l<3§d§l§k|",
+  "itemgroup.randomcraft.choas_items": "§c§l💥 §6§l§ko§r §e§l§nCH§6§l§nAO§c§l§nS §4§lMA§c§lN §e§lYEHHH! §6§l§ko§r §c§l💥"
 }

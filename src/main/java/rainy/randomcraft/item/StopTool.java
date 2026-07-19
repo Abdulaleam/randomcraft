@@ -9,6 +9,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import rainy.randomcraft.ChoasRandomizer;
+import rainy.randomcraft.Randomcraft;
 
 public class StopTool extends Item {
     public StopTool(Settings settings) {
@@ -17,6 +18,7 @@ public class StopTool extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand){
         if ((!world.isClient())){
+            Randomcraft.ENABLED = false;
             ChoasRandomizer.enabled = false;
             ChoasRandomizer.restoreRecipes(((ServerWorld) world).getServer());
             player.sendMessage(net.minecraft.text.Text.literal("Awhhh We Gotta stop :( ")
