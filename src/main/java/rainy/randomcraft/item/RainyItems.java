@@ -11,8 +11,8 @@ import rainy.randomcraft.Randomcraft;
 
 public class RainyItems {
 
-    public static final Item START_ITEM = registerItem("start_item", new StartTool(new Item.Settings()));
-    public static final Item STOP_ITEM = registerItem("stop_item", new StopTool(new Item.Settings()));
+    public static final Item START_ITEM = registerItem("start_item", new StartTool(new Item.Settings().maxCount(1)));
+    public static final Item STOP_ITEM = registerItem("stop_item", new StopTool(new Item.Settings().maxCount(1)));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, Identifier.of(Randomcraft.MOD_ID, name), item);
